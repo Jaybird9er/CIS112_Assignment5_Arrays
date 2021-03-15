@@ -14,6 +14,9 @@ def setZero(zeroList):
     return aList
 
 def inputArray (userArr):
+    """
+    prompts user to input 20 integers
+    """
     userInput = 0
     print("Enter 20 integers:")
     while userInput < len(userArr):
@@ -21,11 +24,18 @@ def inputArray (userArr):
         userInput += 1
 
 def doubleArray (baseList, dubList):
+    """
+    initializes the elements of beta to two times the corresponding elements in alpha
+    """
     for item in range(len(baseList)):
         dubList[item] = baseList[item] * 2
     return dubList
 
 def copyGamma (stockList, gammaList):
+    """
+    sets the elements of the first row of inStock from gamma and the remaining rows 
+    of inStock to three times the previous row of inStock
+    """
     for row in range(len(stockList)):
         col = 0
         while col < len(gammaList):
@@ -36,8 +46,20 @@ def copyGamma (stockList, gammaList):
             col += 1
     return stockList
 
-def copyAlphaBeta ():
-    pass
+def copyAlphaBeta (aList, bList, inList):
+    """
+    stores alpha into the first five rows of inStock and beta into the last 
+    five rows of inStock
+    """
+    row = 0
+    while row < len(inList) / 2:
+        col = 0
+        while col < len(inList[0]):
+            inList[row][col] = aList[col + (row * 4)]
+            inList[row + 5][col] = bList[col + (row * 4)]
+            col += 1
+        row += 1
+    return inList
 
 def printArray ():
     pass
@@ -51,8 +73,9 @@ beta = [None for x in range(20)]
 gamma = [11, 13, 15, 17]
 delta = [3, 5, 2, 6, 10, 9, 7, 11, 1, 8]
 
-#print(inputArray(alpha))
-#print(doubleArray(alpha, beta))
+inputArray(alpha)
+print(doubleArray(alpha, beta))
 #print(copyGamma(inStock, gamma))
+print(copyAlphaBeta(alpha, beta, inStock))
 
 #print(len(inStock))
