@@ -22,6 +22,7 @@ def inputArray (userArr):
     while userInput < len(userArr):
         userArr[userInput] = int(input())
         userInput += 1
+    return userArr
 
 def doubleArray (baseList, dubList):
     """
@@ -61,8 +62,12 @@ def copyAlphaBeta (aList, bList, inList):
         row += 1
     return inList
 
-def printArray ():
-    pass
+def printArray (oneDList):
+    """
+    prints any one-dimensional list
+    """
+    for index in oneDList:
+        print(index, end="\t")
 
 def setInStock ():
     pass
@@ -73,9 +78,24 @@ beta = [None for x in range(20)]
 gamma = [11, 13, 15, 17]
 delta = [3, 5, 2, 6, 10, 9, 7, 11, 1, 8]
 
-inputArray(alpha)
-print(doubleArray(alpha, beta))
-#print(copyGamma(inStock, gamma))
+print("Alpha after initialization:")
+printArray(setZero(alpha))
+print("", end="\n\n")
+alpha = inputArray(alpha)
+print("", end="\n")
+print("Alpha after reading 20 numbers:")
+printArray(alpha)
+print("", end="\n\n")
+print("Beta after a call to doubleArray:")
+printArray(doubleArray(alpha, beta))
+print("", end="\n\n")
+print("inStock after a call to copyGamma:")
+print(copyGamma(inStock, gamma))
+print("", end="\n\n")
+print("inStock after a call to copyAlphaBeta:")
 print(copyAlphaBeta(alpha, beta, inStock))
+print("", end="\n\n")
+print("inStock after a call to setInStock:")
+
 
 #print(len(inStock))
